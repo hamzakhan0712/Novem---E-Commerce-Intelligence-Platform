@@ -1,0 +1,43 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  background: var(--novem-bg-elevated);
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--novem-accent, #52c41a);
+}
+
+.cardIcon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--novem-text-primary);
+}
+
+.cardActions {
+  display: flex;
+  gap: 6px;
+}

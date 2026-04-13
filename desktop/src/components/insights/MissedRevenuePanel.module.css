@@ -1,0 +1,122 @@
+.wrapper {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-5);
+  transition: border-color var(--novem-transition-fast);
+}
+
+.wrapper:hover {
+  border-color: var(--novem-border-hover);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--novem-space-4);
+}
+
+.title {
+  font-size: var(--novem-font-size-md);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.totalBadge {
+  font-size: var(--novem-font-size-sm);
+  font-weight: 600;
+  color: var(--novem-error);
+  background: var(--novem-error-bg);
+  padding: 2px 10px;
+  border-radius: var(--novem-radius-md);
+}
+
+.segments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-3);
+  margin-bottom: var(--novem-space-4);
+}
+
+.segment {
+  padding: var(--novem-space-3);
+  background: var(--novem-bg-secondary);
+  border-radius: var(--novem-radius-md);
+}
+
+.segmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--novem-space-2);
+}
+
+.segmentLabel {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  font-weight: 500;
+}
+
+.segmentValue {
+  font-size: var(--novem-font-size-sm);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.segmentCount {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  margin-top: var(--novem-space-1);
+}
+
+.opList {
+  border-top: 1px solid var(--novem-border-default);
+  padding-top: var(--novem-space-4);
+}
+
+.opTitle {
+  font-size: var(--novem-font-size-sm);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0 0 var(--novem-space-3);
+}
+
+.opItem {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+  padding: var(--novem-space-2) 0;
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.opItem:last-child {
+  border-bottom: none;
+}
+
+.opDesc {
+  flex: 1;
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  line-height: var(--novem-line-height-base);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opAmount {
+  font-size: var(--novem-font-size-sm);
+  font-weight: 600;
+  color: var(--novem-error);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.emptyWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}

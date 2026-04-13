@@ -1,0 +1,16 @@
+# PyInstaller build artifacts
+build/
+dist/*
+!dist/novem-engine/
+dist/novem-engine/*
+!dist/novem-engine/.gitkeep
+*.spec.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Virtual environment
+.venv/

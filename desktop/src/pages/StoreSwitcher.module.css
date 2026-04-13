@@ -1,0 +1,147 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 48px 32px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0 0 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--novem-text-secondary);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.storeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.storeCard:hover {
+  border-color: var(--novem-accent);
+  box-shadow: 0 2px 12px rgba(82, 196, 26, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--novem-radius-md);
+  background: var(--novem-accent-bg);
+  color: var(--novem-accent);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.storeName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.storeMeta {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+}
+
+.dataCounts {
+  display: flex;
+  gap: 16px;
+}
+
+.countItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.countValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.countLabel {
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.createCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  background: var(--novem-bg-secondary);
+  border: 1px dashed var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--novem-text-secondary);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.createCard:hover {
+  border-color: var(--novem-accent);
+  color: var(--novem-accent);
+}
+
+.footer {
+  margin-top: 24px;
+}

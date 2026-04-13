@@ -1,0 +1,127 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-3);
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-4) var(--novem-space-5);
+  transition: border-color var(--novem-transition-fast), box-shadow var(--novem-transition-fast);
+}
+
+.card:hover {
+  border-color: var(--novem-border-hover);
+  box-shadow: var(--novem-shadow-xs);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.headerIcon {
+  font-size: 16px;
+  color: var(--novem-text-tertiary);
+}
+
+.headerTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  flex: 1;
+}
+
+.viewAll {
+  background: none;
+  border: none;
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-accent);
+  cursor: pointer;
+  padding: 0;
+  font-weight: var(--novem-font-weight-medium);
+}
+
+.viewAll:hover {
+  text-decoration: underline;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+  padding: var(--novem-space-2) 0;
+}
+
+.rank {
+  width: 20px;
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-tertiary);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.productInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.productName {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-medium);
+  color: var(--novem-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--novem-bg-hover);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--novem-accent);
+  transition: width 0.3s ease;
+}
+
+.productStats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 1px;
+}
+
+.revenue {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.units {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+}
+
+.loadingCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--novem-space-8);
+}

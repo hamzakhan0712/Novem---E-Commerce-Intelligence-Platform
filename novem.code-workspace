@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "desktop"
+    },
+    {
+      "path": "engine"
+    },
+  ],
+  "settings": {
+    "github.copilot.enable": {
+      "*": true
+    },
+    "editor.inlineSuggest.enabled": true,
+    "duckdb.databases": [
+      {
+        "alias": "analytics",
+        "type": "file",
+        "path": "d:\\HamzaKhan-GitHub\\Novem---E-Commerce-Intelligence-Platform\\engine\\data\\analytics.duckdb",
+        "attached": false
+      }
+    ],
+    "duckdb.defaultDatabase": "analytics",
+    "liveServer.settings.multiRootWorkspaceName": "Novem---E-Commerce-Intelligence-Platform"
+  }
+}

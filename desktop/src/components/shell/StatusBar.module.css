@@ -1,0 +1,97 @@
+.statusBar {
+  display: flex;
+  align-items: center;
+  height: var(--novem-statusbar-height);
+  background: var(--novem-bg-sunken);
+  border-top: 1px solid var(--novem-border-default);
+  padding: 0 var(--novem-space-3);
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  flex-shrink: 0;
+  gap: var(--novem-space-2);
+  user-select: none;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  padding: 0 var(--novem-space-1);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotGreen {
+  background: var(--novem-success);
+  box-shadow: 0 0 4px rgba(82, 196, 26, 0.4);
+}
+
+.dotRed {
+  background: var(--novem-error);
+  box-shadow: 0 0 4px rgba(255, 77, 79, 0.4);
+}
+
+.dotYellow {
+  background: var(--novem-warning);
+  box-shadow: 0 0 4px rgba(250, 173, 20, 0.4);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.separator {
+  color: var(--novem-text-tertiary);
+  opacity: 0.4;
+}
+
+.storeName {
+  font-weight: 500;
+  color: var(--novem-text-secondary);
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clickable {
+  cursor: pointer;
+  border-radius: var(--novem-radius-sm);
+  padding: 1px var(--novem-space-2);
+  transition: background 0.15s, color 0.15s;
+}
+
+.clickable:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-secondary);
+}
+
+.zoomBtn {
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px;
+  border-radius: var(--novem-radius-sm);
+  transition: background 0.15s, color 0.15s;
+}
+
+.zoomBtn:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-secondary);
+}
+
+.versionBadge {
+  font-size: 9px;
+  font-weight: 600;
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-tertiary);
+  padding: 0 5px;
+  border-radius: 3px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+}

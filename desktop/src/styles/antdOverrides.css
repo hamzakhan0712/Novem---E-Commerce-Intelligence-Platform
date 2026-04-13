@@ -1,0 +1,227 @@
+/* ═══════════════════════════════════════════════════════════════
+   Ant Design Overrides — NOVEM Professional Desktop Style
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Focus & Input ── */
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--novem-accent) !important;
+  box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.1) !important;
+}
+
+.ant-input-affix-wrapper:hover,
+.ant-input:hover {
+  border-color: var(--novem-border-strong) !important;
+}
+
+.ant-input,
+.ant-input-affix-wrapper {
+  border-radius: var(--novem-radius-md) !important;
+}
+
+/* ── Steps ── */
+.ant-steps-item-finish .ant-steps-item-icon {
+  border-color: var(--novem-accent) !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+  color: var(--novem-accent) !important;
+}
+
+/* ── Buttons ── */
+.ant-btn {
+  box-shadow: none !important;
+  border-radius: var(--novem-radius-md) !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-btn-default {
+  border-color: var(--novem-border-strong) !important;
+}
+
+.ant-btn-default:hover {
+  border-color: var(--novem-accent) !important;
+  color: var(--novem-accent) !important;
+}
+
+/* ── Dropdown ── */
+.ant-dropdown-menu {
+  background: var(--novem-bg-elevated) !important;
+  border: 1px solid var(--novem-border-default) !important;
+  border-radius: var(--novem-radius-lg) !important;
+  box-shadow: var(--novem-shadow-lg) !important;
+  padding: 4px !important;
+}
+
+.ant-dropdown-menu-item {
+  border-radius: var(--novem-radius-sm) !important;
+  font-size: 12px !important;
+  padding: 5px 12px !important;
+}
+
+/* ── Cards ── */
+.ant-card {
+  border-radius: var(--novem-radius-lg) !important;
+  border-color: var(--novem-border-default) !important;
+  background: var(--novem-bg-card) !important;
+}
+
+.ant-card-head {
+  border-bottom-color: var(--novem-border-default) !important;
+  min-height: 40px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+}
+
+.ant-card-body {
+  padding: 16px !important;
+}
+
+/* ── Tables ── */
+.ant-table {
+  font-size: 12px !important;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-thead > tr > td {
+  background: var(--novem-bg-sunken) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.3px !important;
+  color: var(--novem-text-secondary) !important;
+  padding: 8px 12px !important;
+  border-bottom: 1px solid var(--novem-border-default) !important;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 6px 12px !important;
+  border-bottom: 1px solid var(--novem-border-default) !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: var(--novem-bg-hover) !important;
+}
+
+.ant-table-tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+/* ── Tabs ── */
+.ant-tabs-tab {
+  font-size: 13px !important;
+  padding: 8px 4px !important;
+  font-weight: 500 !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-weight: 600 !important;
+}
+
+.ant-tabs-ink-bar {
+  height: 2px !important;
+  border-radius: 1px !important;
+}
+
+/* ── Segmented ── */
+.ant-segmented {
+  border-radius: var(--novem-radius-md) !important;
+  background: var(--novem-bg-sunken) !important;
+  padding: 2px !important;
+  font-size: 12px !important;
+}
+
+.ant-segmented-item {
+  border-radius: var(--novem-radius-sm) !important;
+}
+
+.ant-segmented-item-selected {
+  font-weight: 600 !important;
+}
+
+/* ── Tags ── */
+.ant-tag {
+  border-radius: var(--novem-radius-sm) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  padding: 0 6px !important;
+  line-height: 20px !important;
+}
+
+/* ── Pagination ── */
+.ant-pagination {
+  font-size: 12px !important;
+}
+
+.ant-pagination-item {
+  border-radius: var(--novem-radius-sm) !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  line-height: 26px !important;
+}
+
+.ant-pagination-item-active {
+  border-color: var(--novem-accent) !important;
+}
+
+/* ── Alerts ── */
+.ant-alert {
+  border-radius: var(--novem-radius-lg) !important;
+}
+
+/* ── Message ── */
+.ant-message-notice-content {
+  box-shadow: var(--novem-shadow-md) !important;
+  border-radius: var(--novem-radius-lg) !important;
+}
+
+/* ── Modal ── */
+.ant-modal-content {
+  border-radius: var(--novem-radius-xl) !important;
+  box-shadow: var(--novem-shadow-xl) !important;
+}
+
+.ant-modal-header {
+  border-radius: var(--novem-radius-xl) var(--novem-radius-xl) 0 0 !important;
+}
+
+/* ── Drawer ── */
+.ant-drawer-content {
+  background: var(--novem-bg-elevated) !important;
+}
+
+.ant-drawer-header {
+  border-bottom-color: var(--novem-border-default) !important;
+}
+
+/* ── Tooltip ── */
+.ant-tooltip-inner {
+  font-size: 11px !important;
+  border-radius: var(--novem-radius-md) !important;
+  padding: 4px 8px !important;
+}
+
+/* ── Select ── */
+.ant-select-selector {
+  border-radius: var(--novem-radius-md) !important;
+}
+
+/* ── Spin ── */
+.ant-spin-dot-item {
+  background-color: var(--novem-accent) !important;
+}
+
+/* ── Popover ── */
+.ant-popover-inner {
+  border-radius: var(--novem-radius-lg) !important;
+  box-shadow: var(--novem-shadow-lg) !important;
+}
+
+/* ── Breadcrumb ── */
+.ant-breadcrumb {
+  font-size: 12px !important;
+}

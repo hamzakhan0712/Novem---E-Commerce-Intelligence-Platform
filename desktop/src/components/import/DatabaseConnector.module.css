@@ -1,0 +1,42 @@
+.connectorForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.connectorHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.connectorTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.connectorDesc {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+}
+
+.modeSwitch {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.previewTable {
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}

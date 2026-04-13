@@ -1,0 +1,59 @@
+.section { margin-bottom: 24px; }
+
+.sectionTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--novem-border-default);
+  display: flex;
+  align-items: center;
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--novem-border-default);
+  gap: 16px;
+}
+
+.infoRow:last-child { border-bottom: none; }
+
+.infoLabel {
+  font-size: var(--novem-font-size-base);
+  color: var(--novem-text-secondary);
+  flex-shrink: 0;
+}
+
+.infoValue {
+  font-size: var(--novem-font-size-base);
+  font-weight: var(--novem-font-weight-medium);
+  color: var(--novem-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pathValue {
+  font-size: var(--novem-font-size-sm);
+  font-family: var(--novem-font-mono);
+  color: var(--novem-text-primary);
+  word-break: break-all;
+  text-align: right;
+}
+
+.placeholder {
+  padding: 16px;
+  text-align: center;
+  color: var(--novem-text-tertiary);
+  font-size: var(--novem-font-size-sm);
+}

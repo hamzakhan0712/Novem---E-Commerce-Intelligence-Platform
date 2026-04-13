@@ -1,0 +1,67 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+}
+
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--novem-space-3);
+}
+
+@media (max-width: 700px) {
+  .summaryCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--novem-space-1);
+  padding: var(--novem-space-4) var(--novem-space-5);
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  text-align: center;
+  transition: border-color var(--novem-transition-fast), box-shadow var(--novem-transition-fast);
+}
+
+.statCard:hover {
+  border-color: var(--novem-border-hover);
+  box-shadow: var(--novem-shadow-xs);
+}
+
+.statIcon {
+  font-size: 18px;
+}
+
+.statValue {
+  font-size: var(--novem-font-size-2xl);
+  font-weight: 700;
+  color: var(--novem-text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  font-weight: var(--novem-font-weight-medium);
+}
+
+.tableCard {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-5);
+}
+
+.tableTitle {
+  font-size: var(--novem-font-size-base);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0 0 var(--novem-space-3) 0;
+}

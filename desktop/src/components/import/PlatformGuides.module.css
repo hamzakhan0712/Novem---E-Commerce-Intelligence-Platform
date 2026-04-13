@@ -1,0 +1,72 @@
+.container {
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  overflow: hidden;
+  margin-bottom: var(--novem-space-4);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: var(--novem-bg-sunken);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.toggle:hover {
+  background: var(--novem-bg-hover);
+}
+
+.toggleIcon {
+  font-size: 16px;
+  color: var(--novem-accent);
+  flex-shrink: 0;
+}
+
+.toggleLabel {
+  font-size: var(--novem-font-size-sm);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.toggleHint {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  flex: 1;
+}
+
+.chevron {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+  flex-shrink: 0;
+}
+
+.panel {
+  border-top: 1px solid var(--novem-border-default);
+  padding: var(--novem-space-2);
+}
+
+.platformLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--novem-font-size-sm);
+  font-weight: 500;
+}
+
+.stepsContent {
+  padding: 0 var(--novem-space-2);
+}
+
+.stepLine {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}

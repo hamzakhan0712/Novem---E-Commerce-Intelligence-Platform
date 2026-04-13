@@ -1,0 +1,192 @@
+/* ── wrapper ── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+}
+
+/* ── header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+/* ── store list ── */
+.storeList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── store row ── */
+.storeRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: var(--novem-radius-md);
+  border: 1px solid var(--novem-border-default);
+  background: var(--novem-bg-surface);
+  transition: border-color 0.15s;
+}
+
+.storeRow:hover {
+  border-color: var(--novem-border-hover);
+}
+
+.storeRowActive {
+  border-color: var(--novem-accent);
+}
+
+.storeRowActive:hover {
+  border-color: var(--novem-accent);
+}
+
+/* ── row main: icon + info + action ── */
+.rowMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.rowIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--novem-radius-sm);
+  border: 1px solid var(--novem-border-default);
+  background: var(--novem-bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--novem-text-secondary);
+  flex-shrink: 0;
+}
+
+.rowIconActive {
+  background: color-mix(in srgb, var(--novem-accent) 12%, transparent);
+  border-color: var(--novem-accent);
+  color: var(--novem-accent);
+}
+
+.rowInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rowNameLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rowName {
+  font-size: var(--novem-font-size-base);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+}
+
+.activeTag {
+  font-size: 10px;
+  line-height: 1;
+  padding: 1px 6px;
+}
+
+.platformTag {
+  font-size: 10px;
+  line-height: 1;
+  padding: 1px 6px;
+}
+
+.rowMeta {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.rowUrl {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.rowDesc {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  margin: 4px 0 0;
+  line-height: 1.45;
+}
+
+.rowActions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ── stats row ── */
+.rowStats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-left: 52px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 14px;
+  background: var(--novem-bg-sunken);
+  border-radius: var(--novem-radius-sm);
+  min-width: 70px;
+}
+
+.statValue {
+  font-size: var(--novem-font-size-base);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-text-primary);
+}
+
+.statLabel {
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ── dates footer ── */
+.rowDates {
+  display: flex;
+  gap: var(--novem-space-4);
+  flex-wrap: wrap;
+  padding-left: 52px;
+}
+
+.dateItem {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-1);
+  font-size: 11px;
+  color: var(--novem-text-tertiary);
+}

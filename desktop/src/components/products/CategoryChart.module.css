@@ -1,0 +1,35 @@
+.wrapper {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-5);
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--novem-space-2);
+  margin-bottom: var(--novem-space-4);
+}
+
+.title {
+  font-size: var(--novem-font-size-md);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.subtitle {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+}
+
+.chart {
+  height: 300px;
+}
+
+.emptyWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}

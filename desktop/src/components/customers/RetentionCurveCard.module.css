@@ -1,0 +1,9 @@
+.card {
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  gap: var(--novem-space-6);
+  margin-bottom: var(--novem-space-4);
+}

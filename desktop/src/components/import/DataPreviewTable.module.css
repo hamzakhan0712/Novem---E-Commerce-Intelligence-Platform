@@ -1,0 +1,40 @@
+.previewWrap {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+.previewTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.previewTable th {
+  background: var(--novem-bg-sunken);
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--novem-text-secondary);
+  border-bottom: 1px solid var(--novem-border-default);
+  white-space: nowrap;
+}
+
+.previewTable td {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--novem-border-subtle);
+  color: var(--novem-text-primary);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.previewTable tr:hover td {
+  background: var(--novem-bg-hover);
+}
+
+.rowCount {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+  margin-top: 8px;
+}

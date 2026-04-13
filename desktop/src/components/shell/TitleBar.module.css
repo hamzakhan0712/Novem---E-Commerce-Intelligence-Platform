@@ -1,0 +1,242 @@
+.titleBar {
+  display: flex;
+  align-items: center;
+  height: var(--novem-titlebar-height);
+  background: var(--novem-bg-elevated);
+  border-bottom: 1px solid var(--novem-border-default);
+  padding: 0 var(--novem-space-1);
+  user-select: none;
+  -webkit-app-region: drag;
+  position: relative;
+  z-index: var(--novem-z-toolbar);
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 var(--novem-space-2) 0 var(--novem-space-3);
+  -webkit-app-region: no-drag;
+  cursor: default;
+  height: 100%;
+}
+
+.logoImg {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(82, 196, 26, 0.15));
+}
+
+.logoText {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  letter-spacing: 2px;
+}
+
+.menuBar {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  -webkit-app-region: no-drag;
+  height: 100%;
+  margin-left: var(--novem-space-1);
+}
+
+.menuItem {
+  padding: 0 10px;
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  cursor: pointer;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--novem-radius-sm);
+  transition: background 0.15s, color 0.15s;
+  font-weight: 450;
+  letter-spacing: 0.1px;
+}
+
+.menuItem:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-primary);
+}
+
+.dragRegion {
+  flex: 1;
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-1);
+  -webkit-app-region: no-drag;
+  height: 100%;
+}
+
+.storeName {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  font-weight: var(--novem-font-weight-medium);
+  margin-right: var(--novem-space-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  border-radius: var(--novem-radius-sm);
+  color: var(--novem-text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.iconBtn:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-primary);
+}
+
+.windowControls {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  -webkit-app-region: no-drag;
+  margin-left: var(--novem-space-2);
+}
+
+.winBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 100%;
+  color: var(--novem-text-tertiary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+  background: transparent;
+}
+
+.winBtn:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-primary);
+}
+
+.winBtnClose:hover {
+  background: var(--novem-error);
+  color: #fff;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.profileName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileEmail {
+  font-size: 11px;
+  color: var(--novem-text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileStore {
+  font-size: 11px;
+  color: var(--novem-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.datasetSelect {
+  min-width: 160px;
+  max-width: 260px;
+}
+
+.datasetSelect :global(.ant-select-selector) {
+  font-size: 12px !important;
+  height: 26px !important;
+  border-radius: var(--novem-radius-sm) !important;
+}
+
+.datasetOption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.datasetDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.datasetOptName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.noDataset {
+  font-size: 11px;
+  color: var(--novem-text-tertiary);
+  font-style: italic;
+  margin-right: var(--novem-space-2);
+}
+
+.profileArea {
+  display: flex;
+  align-items: center;
+  -webkit-app-region: no-drag;
+  margin-right: var(--novem-space-1);
+}
+
+.profileBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border: none;
+  background: transparent;
+  border-radius: var(--novem-radius-sm);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.profileBtn:hover {
+  background: var(--novem-bg-hover);
+}

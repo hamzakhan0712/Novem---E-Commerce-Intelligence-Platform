@@ -1,0 +1,40 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  border-radius: 50%;
+}
+
+.sm .dot {
+  width: 6px;
+  height: 6px;
+}
+
+.md .dot {
+  width: 8px;
+  height: 8px;
+}
+
+.green .dot {
+  background-color: var(--novem-success);
+  box-shadow: 0 0 4px var(--novem-success);
+}
+
+.amber .dot {
+  background-color: var(--novem-warning);
+  box-shadow: 0 0 4px var(--novem-warning);
+}
+
+.red .dot {
+  background-color: var(--novem-error);
+  box-shadow: 0 0 4px var(--novem-error);
+}
+
+.label {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  font-weight: 500;
+}

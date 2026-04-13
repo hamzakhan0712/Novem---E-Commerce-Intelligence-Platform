@@ -1,0 +1,81 @@
+.activityBar {
+  display: flex;
+  flex-direction: column;
+  width: var(--novem-activity-bar-width);
+  background: var(--novem-bg-sunken);
+  border-right: 1px solid var(--novem-border-default);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.topIcons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--novem-space-3);
+  gap: 2px;
+  flex: 1;
+}
+
+.bottomIcons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--novem-space-3);
+  gap: 2px;
+  border-top: 1px solid var(--novem-border-default);
+  padding-top: var(--novem-space-3);
+  margin-top: var(--novem-space-2);
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--novem-radius-md);
+  color: var(--novem-text-tertiary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+}
+
+.navItem:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-primary);
+}
+
+.navItemActive {
+  color: var(--novem-accent);
+  background: var(--novem-accent-bg);
+}
+
+.navItemActive:hover {
+  background: var(--novem-accent-bg);
+}
+
+.navItemActive::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--novem-accent);
+}
+
+.navItemDisabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.navItemDisabled:hover {
+  background: transparent;
+  color: var(--novem-text-tertiary);
+}

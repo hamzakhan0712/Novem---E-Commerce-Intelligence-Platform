@@ -1,0 +1,20 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-4);
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  flex-wrap: wrap;
+}
+
+.collapseLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+}

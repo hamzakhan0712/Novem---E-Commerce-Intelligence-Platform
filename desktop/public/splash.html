@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVEM — E-Commerce Intelligence Platform</title>
+  <!-- Self-hosted fonts for offline-first reliability -->
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/Inter-Bold.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 600;
+      font-display: swap;
+      src: url('fonts/Inter-SemiBold.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    }
+  </style>
+
+  <style>
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Root vars ── */
+    :root {
+      --green: #7DF25E;
+      --green-dim: #3a6e2c;
+      --green-glow: rgba(125, 242, 94, 0.12);
+      --surface: #0a0a0a;
+      --border: rgba(255,255,255,0.06);
+      --text-primary: #f0f0f0;
+      --text-muted: rgba(240,240,240,0.3);
+      --text-faint: rgba(240,240,240,0.12);
+    }
+
+    /* ── Outer shell ── */
+    .splash {
+      position: fixed; inset: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    /* Subtle grid texture */
+    .splash::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Very faint radial glow behind logos */
+    .splash::after {
+      content: '';
+      position: absolute;
+      width: 520px; height: 520px;
+      background: radial-gradient(ellipse, var(--green-glow) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -56%);
+      pointer-events: none;
+    }
+
+    /* ── Center stage ── */
+    .stage {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: stageIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    @keyframes stageIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Novem logo block ── */
+    .novem-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 0.7s 0.28s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    .novem-logo img {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .novem-wordmark {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    
+    }
+
+    .novem-descriptor {
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: var(--green);
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 1px;
+      height: 8px;
+      background: linear-gradient(to bottom, transparent, var(--border), transparent);
+      margin: 40px 0 36px;
+      animation: fadeUp 0.6s 0.42s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    /* ── Bottom status block ── */
+    .status-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      animation: fadeUp 0.6s 0.52s cubic-bezier(0.16,1,0.3,1) both;
+      width: 260px;
+    }
+
+    /* Progress track */
+    .track {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-fill {
+      position: absolute;
+      left: 0; top: 0;
+      height: 100%;
+      background: var(--green);
+      width: 0%;
+      animation: fill 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards;
+    }
+
+    @keyframes fill {
+      0%   { width: 0%; opacity: 1; }
+      15%  { width: 12%; }
+      40%  { width: 45%; }
+      70%  { width: 78%; }
+      90%  { width: 94%; }
+      100% { width: 100%; opacity: 0.6; }
+    }
+
+    /* Pulsing dot + status text */
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 1.6s ease-in-out 0.7s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    .status-text {
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ── Corner stamp ── */
+    .corner {
+      position: fixed;
+      bottom: 22px;
+      right: 28px;
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      color: #fff;
+      text-transform: uppercase;
+      z-index: 20;
+      animation: fadeUp 0.6s 1s both;
+    }
+  </style>
+</head>
+<body>
+  <div class="splash">
+
+    <div class="stage">
+
+      <!-- Novem identity -->
+      <div class="novem-logo">
+        <img src="novem_logo.png" alt="Novem" />
+        <div class="novem-wordmark">Novem</div>
+        <div class="novem-descriptor">E-Commerce Intelligence Platform</div>
+      </div>
+
+      <!-- Separator -->
+      <div class="divider"></div>
+
+      <!-- Load status -->
+      <div class="status-block">
+        <div class="track">
+          <div class="track-fill"></div>
+        </div>
+        <div class="status-row">
+          <div class="dot"></div>
+          <span class="status-text">Initializing workspace</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="corner">v1.0.0 &nbsp;·&nbsp; 2026</div>
+</body>
+</html>

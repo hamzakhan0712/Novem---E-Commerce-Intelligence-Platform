@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+desktop/dist/
+desktop/src-tauri/target/
+mobile/.expo/
+engine/dist/
+engine/build/
+engine/*.spec
+
+# Python
+engine/.venv/
+engine/__pycache__/
+engine/**/__pycache__/
+engine/**/*.pyc
+*.egg-info/
+
+# Database files
+engine/data/*.duckdb
+engine/data/*.sqlite
+engine/data/*.duckdb.wal
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Sensitive config
+engine/config/email_config.json
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log

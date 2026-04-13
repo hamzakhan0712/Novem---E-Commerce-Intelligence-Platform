@@ -1,0 +1,86 @@
+.sliderWrap {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+}
+
+.playBtn {
+  flex-shrink: 0;
+  font-size: 18px;
+  color: var(--novem-accent);
+}
+
+.resetBtn {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--novem-text-tertiary);
+}
+
+.resetBtn:hover {
+  color: var(--novem-accent);
+}
+
+.sliderLabel {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-medium);
+  white-space: nowrap;
+  color: var(--novem-text-secondary);
+  min-width: 160px;
+}
+
+.sliderLabel strong {
+  color: var(--novem-text-primary);
+}
+
+.slider {
+  flex: 1;
+  margin: 0;
+}
+
+.summaryRow {
+  display: flex;
+  gap: var(--novem-space-3);
+  margin-bottom: var(--novem-space-4);
+  flex-wrap: wrap;
+}
+
+.summaryCard {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+
+.heatmapWrap {
+  margin-top: var(--novem-space-3);
+}
+
+/* ── Insight summary ── */
+
+.insight {
+  margin-top: var(--novem-space-4);
+  padding: var(--novem-space-4);
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  border-left: 3px solid var(--novem-accent);
+}
+
+.insightTitle {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-accent);
+  margin-bottom: var(--novem-space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.insightLine {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--novem-space-1);
+}
+
+.insightLine:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,83 @@
+.wrapper {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-5);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--novem-transition-fast);
+}
+
+.wrapper:hover {
+  border-color: var(--novem-border-hover);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--novem-space-3);
+}
+
+.title {
+  font-size: var(--novem-font-size-md);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--novem-space-1);
+  margin-bottom: var(--novem-space-4);
+}
+
+.scoreValue {
+  font-size: var(--novem-font-size-xl);
+  font-weight: 700;
+  color: var(--novem-text-primary);
+}
+
+.labelWrap {
+  text-align: center;
+}
+
+.label {
+  font-size: var(--novem-font-size-md);
+  font-weight: 600;
+}
+
+.components {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-3);
+  margin-top: auto;
+}
+
+.compRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+}
+
+.compLabel {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.compBar {
+  flex: 1;
+}
+
+.compScore {
+  font-size: var(--novem-font-size-xs);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  min-width: 24px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

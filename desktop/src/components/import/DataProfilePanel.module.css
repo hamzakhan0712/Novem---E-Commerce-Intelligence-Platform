@@ -1,0 +1,180 @@
+.profilePanel {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+}
+
+.statsRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  flex: 1;
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md, 8px);
+  padding: 12px;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.statLabel {
+  font-size: 11px;
+  color: var(--novem-text-tertiary);
+  margin-top: 2px;
+}
+
+.columnCard {
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md, 8px);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  transition: border-color 0.15s;
+}
+
+.columnCard:hover {
+  border-color: var(--novem-border-hover, rgba(82, 196, 26, 0.3));
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.columnName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.columnDtype {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.dtypeNumber {
+  background: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+}
+
+.dtypeString {
+  background: rgba(114, 46, 209, 0.1);
+  color: #722ed1;
+}
+
+.dtypeDate {
+  background: rgba(82, 196, 26, 0.1);
+  color: #52c41a;
+}
+
+.columnStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 6px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.statKey {
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.statVal {
+  font-size: 12px;
+  color: var(--novem-text-secondary);
+  font-weight: 500;
+}
+
+.topValues {
+  margin-top: 8px;
+}
+
+.topValuesLabel {
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.topValueBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.topValueName {
+  font-size: 11px;
+  color: var(--novem-text-secondary);
+  min-width: 80px;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topValueTrack {
+  flex: 1;
+  height: 4px;
+  background: var(--novem-bg-hover);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.topValueFill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--novem-accent, #52c41a);
+  transition: width 0.3s ease;
+}
+
+.topValueCount {
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  min-width: 30px;
+  text-align: right;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--novem-text-tertiary);
+  font-size: 13px;
+}

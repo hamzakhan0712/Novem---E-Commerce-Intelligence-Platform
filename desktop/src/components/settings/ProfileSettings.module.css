@@ -1,0 +1,128 @@
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-6);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-5);
+}
+
+.avatarWrapper {
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.avatarWrapper:hover .avatarOverlay {
+  opacity: 1;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--novem-radius-full);
+  border: 2px solid var(--novem-border-default);
+  background: var(--novem-bg-elevated);
+  object-fit: cover;
+}
+
+.avatarFallback {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--novem-radius-full);
+  border: 2px solid var(--novem-border-default);
+  background: var(--novem-accent-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--novem-font-size-xl);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-accent);
+}
+
+.avatarOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--novem-radius-full);
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profileName {
+  font-size: var(--novem-font-size-lg);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.profileEmail {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  margin: 0;
+}
+
+.profileMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-1);
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  margin-top: 2px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--novem-space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-1);
+}
+
+.fieldFull {
+  composes: field;
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-medium);
+  color: var(--novem-text-secondary);
+}
+
+.divider {
+  height: 1px;
+  background: var(--novem-border-default);
+  margin: var(--novem-space-2) 0;
+}
+
+.sectionTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0 0 var(--novem-space-4) 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--novem-space-2);
+}

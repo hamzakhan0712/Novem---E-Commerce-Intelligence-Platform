@@ -1,0 +1,39 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+}
+
+.sectionTitle {
+  font-size: var(--novem-font-size-lg);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  margin: 0;
+}
+
+.sectionDesc {
+  color: var(--novem-text-secondary);
+  font-size: var(--novem-font-size-sm);
+  margin: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--novem-space-5);
+}
+
+@media (max-width: 700px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.buttonRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+}

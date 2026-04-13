@@ -1,0 +1,13 @@
+.card {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-5);
+}
+
+.title {
+  font-size: var(--novem-font-size-base);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0 0 var(--novem-space-3) 0;
+}

@@ -1,0 +1,115 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--novem-space-4) var(--novem-space-6);
+  border-bottom: 1px solid var(--novem-border-default);
+  flex-shrink: 0;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+}
+
+.title {
+  font-size: var(--novem-font-size-lg);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+}
+
+/* ── Message area ──────────────────────────────────────────── */
+
+.messageArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+  padding: var(--novem-space-4) var(--novem-space-6);
+  gap: var(--novem-space-2);
+}
+
+/* ── Input area ────────────────────────────────────────────── */
+
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  padding: var(--novem-space-3) var(--novem-space-6) var(--novem-space-4);
+  border-top: 1px solid var(--novem-border-default);
+  background: var(--novem-bg-elevated);
+  flex-shrink: 0;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+}
+
+.chatInput {
+  flex: 1;
+  padding: var(--novem-space-3) var(--novem-space-4);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  background: var(--novem-bg-card);
+  color: var(--novem-text-primary);
+  font-size: var(--novem-font-size-sm);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.chatInput:focus {
+  border-color: var(--novem-accent);
+  box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.1);
+}
+
+.chatInput::placeholder {
+  color: var(--novem-text-tertiary);
+}
+
+.sendBtn {
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputHint {
+  font-size: 11px;
+  color: var(--novem-text-tertiary);
+  margin: var(--novem-space-1) 0 0 0;
+  text-align: center;
+}
+
+

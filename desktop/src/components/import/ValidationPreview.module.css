@@ -1,0 +1,181 @@
+.container {
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  background: var(--novem-bg-card);
+  overflow: hidden;
+  margin-bottom: var(--novem-space-4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: 12px 16px;
+  background: var(--novem-bg-sunken);
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.headerIcon {
+  font-size: 18px;
+  color: var(--novem-accent);
+}
+
+.headerTitle {
+  font-size: var(--novem-font-size-sm);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  flex: 1;
+}
+
+.scoreWrap {
+  flex-shrink: 0;
+}
+
+/* Row summary */
+.rowSummary {
+  display: flex;
+  gap: var(--novem-space-6);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.rowStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rowStatValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--novem-text-primary);
+  line-height: 1.2;
+}
+
+.rowStatLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--novem-text-tertiary);
+}
+
+/* Sections */
+.section {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--novem-font-size-xs);
+  font-weight: 600;
+  color: var(--novem-text-secondary);
+  margin-bottom: 8px;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Issues */
+.issuesList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.issueItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--novem-font-size-xs);
+  padding: 4px 8px;
+  border-radius: var(--novem-radius);
+  background: var(--novem-bg-sunken);
+}
+
+.issueIcon {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.issueText {
+  color: var(--novem-text-primary);
+  flex: 1;
+}
+
+.issueSample {
+  color: var(--novem-text-tertiary);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* Clean actions */
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+}
+
+.actionIcon {
+  font-size: 11px;
+  color: var(--novem-success);
+  flex-shrink: 0;
+}
+
+/* Preview row */
+.previewRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--novem-space-3);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.previewChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.previewChipLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--novem-text-secondary);
+}
+
+/* Unmapped */
+.unmapped {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: var(--novem-font-size-xs);
+}
+
+.unmappedLabel {
+  color: var(--novem-text-tertiary);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.unmappedList {
+  color: var(--novem-text-tertiary);
+}

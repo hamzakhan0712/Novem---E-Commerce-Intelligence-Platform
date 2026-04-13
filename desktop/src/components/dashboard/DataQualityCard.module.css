@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-4) var(--novem-space-5);
+  transition: border-color var(--novem-transition-fast), box-shadow var(--novem-transition-fast);
+}
+
+.card:hover {
+  border-color: var(--novem-border-hover);
+  box-shadow: var(--novem-shadow-xs);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.headerIcon {
+  font-size: 16px;
+  color: var(--novem-text-tertiary);
+}
+
+.headerTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  flex: 1;
+}
+
+.grade {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-5);
+}
+
+.components {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-2);
+}
+
+.componentRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.componentLabel {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.componentBar {
+  flex: 1;
+}
+
+.componentScore {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  width: 35px;
+  text-align: right;
+}
+
+.issues {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: var(--novem-space-2);
+  border-top: 1px solid var(--novem-border-subtle);
+}
+
+.issue {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

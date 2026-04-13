@@ -1,0 +1,33 @@
+.chartWrapper {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-4) var(--novem-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-3);
+  transition: border-color var(--novem-transition-fast);
+}
+
+.chartWrapper:hover {
+  border-color: var(--novem-border-hover);
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chartTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: var(--novem-space-2);
+  align-items: center;
+}

@@ -1,0 +1,35 @@
+.storeSelector {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: 0 var(--novem-space-2);
+  border-left: 1px solid var(--novem-border-default);
+  border-right: 1px solid var(--novem-border-default);
+  margin: 0 var(--novem-space-1);
+  height: 100%;
+}
+
+.select {
+  min-width: 180px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--novem-radius-sm);
+  cursor: pointer;
+  color: var(--novem-text-secondary);
+  border: 1px solid var(--novem-border-default);
+  background: transparent;
+  transition: all var(--novem-transition-fast);
+  font-size: 11px;
+}
+
+.addBtn:hover {
+  color: var(--novem-accent);
+  border-color: var(--novem-accent);
+  background: var(--novem-accent-bg);
+}

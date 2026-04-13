@@ -1,0 +1,37 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  gap: 16px;
+  color: var(--novem-text-secondary);
+  flex: 1;
+  min-height: 320px;
+}
+
+.illustration {
+  margin-bottom: 8px;
+}
+
+.icon {
+  font-size: 48px;
+  color: var(--novem-text-tertiary);
+  opacity: 0.5;
+}
+
+.title {
+  font-size: var(--novem-font-size-lg);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.description {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+  margin: 0;
+}

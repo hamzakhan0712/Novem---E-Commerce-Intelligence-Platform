@@ -1,0 +1,71 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  font-size: 12px;
+  color: var(--novem-text-primary);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.bannerSyncing {
+  background: linear-gradient(90deg, rgba(22, 119, 255, 0.08), rgba(82, 196, 26, 0.08));
+  border-bottom: 1px solid rgba(22, 119, 255, 0.15);
+  max-height: 40px;
+  opacity: 1;
+}
+
+.bannerDone {
+  background: linear-gradient(90deg, rgba(82, 196, 26, 0.08), rgba(82, 196, 26, 0.04));
+  border-bottom: 1px solid rgba(82, 196, 26, 0.15);
+  max-height: 40px;
+  opacity: 1;
+}
+
+.bannerHidden {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 16px;
+  border: none;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.detail {
+  color: var(--novem-text-secondary);
+  margin-left: auto;
+  font-size: 11px;
+}
+
+.activityList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--novem-text-secondary);
+  padding: 1px 6px;
+  background: var(--novem-bg-hover);
+  border-radius: 4px;
+}
+
+.activityItem strong {
+  color: var(--novem-text-primary);
+  font-weight: 600;
+}
+
+.elapsed {
+  color: var(--novem-text-tertiary);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}

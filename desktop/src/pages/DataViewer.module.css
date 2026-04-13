@@ -1,0 +1,445 @@
+/* ── Page shell ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--novem-space-5) var(--novem-space-6) 0;
+  flex-shrink: 0;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.title {
+  font-size: var(--novem-font-size-xl);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-tertiary);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: var(--novem-space-4) var(--novem-space-6) var(--novem-space-4);
+  gap: var(--novem-space-4);
+}
+
+/* ── Left sidebar ── */
+.sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  padding-top: var(--novem-space-1);
+}
+
+.sidebarLabel {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--novem-text-tertiary);
+  margin: 0 0 var(--novem-space-2) 4px;
+}
+
+.sidebarLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--novem-space-6) 0;
+}
+
+.tableItem {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: var(--novem-space-2) var(--novem-space-3);
+  border-radius: var(--novem-radius-md);
+  cursor: pointer;
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  transition: background 0.15s, color 0.15s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.tableItem:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-primary);
+}
+
+.tableItemActive {
+  background: rgba(82, 196, 26, 0.08);
+  color: var(--novem-accent);
+  font-weight: 500;
+}
+
+.tableItemIcon {
+  font-size: 14px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.tableItemActive .tableItemIcon {
+  opacity: 1;
+  color: var(--novem-accent);
+}
+
+.tableItemName {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tableCount {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  background: var(--novem-bg-sunken);
+  padding: 1px 7px;
+  border-radius: 10px;
+  min-width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tableItemActive .tableCount {
+  background: rgba(82, 196, 26, 0.12);
+  color: var(--novem-accent);
+}
+
+/* ── Right: table content ── */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: var(--novem-space-3) var(--novem-space-4);
+  border-bottom: 1px solid var(--novem-border-default);
+  flex-shrink: 0;
+}
+
+.toolbarLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.searchInput {
+  max-width: 280px;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.rowCount {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  white-space: nowrap;
+  padding: 0 var(--novem-space-2);
+}
+
+/* ── Chip bar (search, pins, hidden cols) ── */
+.chipBar {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: var(--novem-space-2) var(--novem-space-4);
+  border-bottom: 1px solid var(--novem-border-default);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  background: var(--novem-bg-hover);
+  border-radius: 12px;
+  padding: 2px 8px 2px 6px;
+  white-space: nowrap;
+}
+
+.chipPin {
+  background: rgba(82, 196, 26, 0.08);
+  color: var(--novem-accent);
+}
+
+.chipClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  color: var(--novem-text-tertiary);
+  padding: 0;
+  margin-left: 2px;
+  line-height: 1;
+}
+
+.chipClose:hover {
+  color: var(--novem-text-primary);
+}
+
+/* ── Column header ── */
+.colHeader {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.colInfoIcon {
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.colHeader:hover .colInfoIcon {
+  opacity: 1;
+}
+
+.colPinIcon {
+  font-size: 10px;
+  color: var(--novem-accent);
+}
+
+/* ── Cell renderers ── */
+.nullCell {
+  color: var(--novem-text-tertiary);
+  font-style: italic;
+  font-size: var(--novem-font-size-xs);
+  opacity: 0.7;
+}
+
+.numberCell {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Table area ── */
+.tableWrapper {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+/* Keep column headers sticky at the top of the scroll area */
+.tableWrapper :global(.ant-table-thead > tr > th),
+.tableWrapper :global(.ant-table-thead > tr > td) {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+/* Hide internal vertical scrollbar — let tableWrapper handle it */
+.tableWrapper :global(.ant-table-body) {
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+}
+
+/* ── Sticky pagination bar ── */
+.paginationBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--novem-space-2) var(--novem-space-4);
+  border-top: 1px solid var(--novem-border-default);
+  background: var(--novem-bg-card);
+  flex-shrink: 0;
+}
+
+.paginationInfo {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Column settings drawer ── */
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-1);
+}
+
+.drawerHint {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  margin: 0 0 var(--novem-space-3);
+}
+
+.colRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--novem-space-2) var(--novem-space-1);
+  border-radius: var(--novem-radius-md);
+  transition: background 0.1s;
+}
+
+.colRow:hover {
+  background: var(--novem-bg-hover);
+}
+
+.colRowLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  min-width: 0;
+}
+
+.colVisBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--novem-accent);
+  border-radius: 4px;
+  transition: background 0.1s, color 0.1s;
+  flex-shrink: 0;
+}
+
+.colVisBtn:hover {
+  background: var(--novem-bg-hover);
+}
+
+.colVisBtnOff {
+  color: var(--novem-text-tertiary);
+  opacity: 0.5;
+}
+
+.colRowInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  min-width: 0;
+}
+
+.colRowName {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.colTypeTag {
+  font-size: 9px !important;
+  line-height: 1 !important;
+  padding: 1px 4px !important;
+}
+
+.pinBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--novem-text-tertiary);
+  border-radius: 4px;
+  transition: background 0.1s, color 0.1s;
+  flex-shrink: 0;
+}
+
+.pinBtn:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-accent);
+}
+
+.pinBtnActive {
+  color: var(--novem-accent);
+}
+
+.colStats {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  padding-top: var(--novem-space-3);
+  margin-top: var(--novem-space-2);
+  border-top: 1px solid var(--novem-border-default);
+}
+
+/* ── Empty state ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--novem-space-2);
+  color: var(--novem-text-tertiary);
+}
+
+.emptyIcon {
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+.emptyTitle {
+  font-size: var(--novem-font-size-lg);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.emptyDesc {
+  font-size: var(--novem-font-size-md);
+  color: var(--novem-text-secondary);
+  margin: 0;
+}

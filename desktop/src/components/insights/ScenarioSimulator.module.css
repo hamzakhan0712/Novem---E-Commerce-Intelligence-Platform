@@ -1,0 +1,54 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--novem-space-5);
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resultsCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+  min-width: 0;
+}
+
+.leversCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+  position: sticky;
+  top: var(--novem-space-4);
+}
+
+.placeholder {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-5);
+}
+
+.sliderItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-1);
+}
+
+.sliderLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-primary);
+}

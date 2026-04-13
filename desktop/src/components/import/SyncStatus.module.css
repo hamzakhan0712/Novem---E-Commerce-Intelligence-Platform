@@ -1,0 +1,57 @@
+.syncStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.syncHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.syncTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.syncDesc {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+}
+
+.syncOverview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.syncStat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  background: var(--novem-bg-sunken);
+  border-radius: var(--novem-radius-md);
+  border: 1px solid var(--novem-border-default);
+}
+
+.syncStatLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--novem-text-tertiary);
+}
+
+.syncStatValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.historyTable {
+  max-height: 300px;
+  overflow-y: auto;
+}

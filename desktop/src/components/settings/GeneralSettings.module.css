@@ -1,0 +1,43 @@
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  gap: 16px;
+}
+
+.formLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.labelText {
+  font-size: var(--novem-font-size-base);
+  font-weight: var(--novem-font-weight-medium);
+  color: var(--novem-text-primary);
+}
+
+.labelHint {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-tertiary);
+}
+
+.formControl {
+  flex-shrink: 0;
+}

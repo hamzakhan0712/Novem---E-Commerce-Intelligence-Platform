@@ -1,0 +1,159 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--novem-space-5) var(--novem-space-6);
+  gap: var(--novem-space-5);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: var(--novem-font-size-xl);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+}
+
+/* ── Config panel ── */
+
+.configPanel {
+  padding: var(--novem-space-4) var(--novem-space-5);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  background: var(--novem-bg-elevated);
+}
+
+.configRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--novem-space-5);
+  flex-wrap: wrap;
+}
+
+.configField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-2);
+}
+
+.fieldLabel {
+  font-size: var(--novem-font-size-xs);
+  font-weight: var(--novem-font-weight-medium);
+  color: var(--novem-text-secondary);
+}
+
+.segmentLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.generateField {
+  margin-left: auto;
+}
+
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  margin-top: var(--novem-space-3);
+  padding: var(--novem-space-2) var(--novem-space-3);
+  border-radius: var(--novem-radius-sm);
+  background: rgba(82, 196, 26, 0.08);
+  color: var(--novem-accent);
+  font-size: var(--novem-font-size-xs);
+}
+
+.successBanner strong {
+  color: var(--novem-text-primary);
+}
+
+/* ── Mode hint ── */
+
+.modeHint {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-tertiary);
+  padding: var(--novem-space-3) var(--novem-space-4);
+  border-left: 3px solid var(--novem-accent);
+  background: var(--novem-bg-sunken);
+  border-radius: 0 var(--novem-radius-sm) var(--novem-radius-sm) 0;
+  line-height: 1.5;
+}
+
+/* ── Sections grid ── */
+
+.sectionsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-3);
+}
+
+.sectionsPanelLabel {
+  font-size: var(--novem-font-size-xs);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sectionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--novem-space-3);
+}
+
+.sectionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--novem-space-3);
+  padding: var(--novem-space-3) var(--novem-space-4);
+  border-radius: var(--novem-radius-md);
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+}
+
+.sectionIcon {
+  color: var(--novem-accent);
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sectionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sectionTitle {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+}
+
+.sectionDesc {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  line-height: 1.4;
+}
+
+

@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-4) var(--novem-space-5);
+  transition: border-color var(--novem-transition-fast), box-shadow var(--novem-transition-fast);
+}
+
+.card:hover {
+  border-color: var(--novem-border-hover);
+  box-shadow: var(--novem-shadow-xs);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.headerIcon {
+  font-size: 16px;
+  color: var(--novem-error);
+}
+
+.headerTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+}
+
+.summaryRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-6);
+}
+
+.riskPrimary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.riskAmount {
+  font-size: var(--novem-font-size-2xl);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-error);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+.riskDesc {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+}
+
+.statsRow {
+  display: flex;
+  gap: var(--novem-space-5);
+  flex: 1;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statValue {
+  font-size: var(--novem-font-size-lg);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+}
+
+.lossValue {
+  color: var(--novem-error);
+  font-weight: 600;
+}
+
+.tableWrap {
+  border-top: 1px solid var(--novem-border-subtle);
+  padding-top: var(--novem-space-3);
+}

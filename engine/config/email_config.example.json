@@ -1,0 +1,9 @@
+{
+  "smtp_host": "smtp.gmail.com",
+  "smtp_port": 587,
+  "smtp_user": "your-email@gmail.com",
+  "smtp_password_encrypted": "",
+  "from_name": "NOVEM",
+  "from_email": "your-email@gmail.com",
+  "use_tls": true
+}

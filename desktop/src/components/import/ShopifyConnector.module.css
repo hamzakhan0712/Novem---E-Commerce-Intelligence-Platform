@@ -1,0 +1,161 @@
+.connectorForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.connectorHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.connectorTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.connectorDesc {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+  margin: 0;
+}
+
+.statusBadge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.sectionLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0 0 8px;
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.webhookInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+}
+
+.webhookField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.webhookLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--novem-text-tertiary);
+  letter-spacing: 0.3px;
+}
+
+.webhookValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.webhookValue code {
+  flex: 1;
+  padding: 6px 10px;
+  background: var(--novem-bg-sunken);
+  border-radius: var(--novem-radius-sm);
+  font-size: 12px;
+  color: var(--novem-text-secondary);
+  word-break: break-all;
+}
+
+.webhookInstructions {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+.syncProgress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+}
+
+.syncProgressText {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.syncProgressSub {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--novem-text-tertiary);
+}
+
+.syncResults {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-success, #52c41a);
+  border-radius: var(--novem-radius-md);
+}
+
+.syncResultsHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--novem-text-primary);
+}
+
+.setupSteps {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--novem-text-secondary);
+}
+
+.setupSteps li {
+  margin-bottom: 10px;
+}
+
+.setupSteps code {
+  padding: 1px 5px;
+  background: var(--novem-bg-sunken);
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.setupSteps ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+
+.setupSteps ul li {
+  margin-bottom: 2px;
+}

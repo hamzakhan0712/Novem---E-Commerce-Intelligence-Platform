@@ -1,0 +1,588 @@
+/* ═══════════════════════════════════════════════════
+   Landing.module.css — Novem Landing Page
+   Wider left pane · Larger typography · Image carousel
+   ═══════════════════════════════════════════════════ */
+
+/* ── Shell ── */
+.landing {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: var(--novem-bg-base);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Neon grid — radiates from corners inward, fades at center */
+.landing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(82, 196, 26, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 196, 26, 0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, transparent 10%, black 85%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, transparent 10%, black 85%);
+}
+
+/* Neon glow layer — corner accents converging inward */
+.landing::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 0% 0%, rgba(82, 196, 26, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 100% 0%, rgba(82, 196, 26, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 0% 100%, rgba(82, 196, 26, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 100% 100%, rgba(82, 196, 26, 0.08) 0%, transparent 60%);
+}
+
+/* ── Body: split grid ── */
+.body {
+  flex: 1;
+  display: grid;
+  /* Left pane is now 560px — 100px wider than before */
+  grid-template-columns: 460px 1fr;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ══════════════════════════════════════
+   LEFT PANE
+   ══════════════════════════════════════ */
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 44px 56px 44px 60px;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ── Logo lockup — BIGGER ── */
+.logoLockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.logo {
+  /* Was 36px — now 56px */
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wordmark {
+  font-family: 'DM Mono', 'JetBrains Mono', monospace;
+  /* Was 13px — now 18px */
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--novem-text-primary);
+  line-height: 1;
+}
+
+.tagline {
+  font-family: 'DM Mono', 'JetBrains Mono', monospace;
+  /* Was 8.5px — now 11px */
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--novem-accent);
+  line-height: 1;
+}
+
+
+/* ── Feature list — BIGGER text ── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  animation: slideUp 0.5s 0.16s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.featureRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: var(--novem-radius-lg);
+  border: 1px solid transparent;
+  cursor: default;
+  transition: background var(--novem-transition-base), border-color var(--novem-transition-base);
+}
+
+
+.featureIcon {
+  /* Was 16px — now 20px */
+  font-size: 20px;
+  color: var(--novem-accent);
+  opacity: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+  transition: opacity var(--novem-transition-base);
+}
+
+
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.featureTitle {
+  /* Was 12.5–13px — now 15px */
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  line-height: 1.35;
+}
+
+.featureDesc {
+  /* Was 11.5–12px — now 13px */
+  font-size: 13px;
+  color: var(--novem-text-tertiary);
+  line-height: 1.5;
+}
+
+/* ── CTA ── */
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: slideUp 0.5s 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ctaBtn {
+  width: fit-content !important;
+  height: 44px !important;
+  padding: 0 32px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  background: var(--novem-accent) !important;
+  border-color: var(--novem-accent) !important;
+  color: #000 !important;
+  border-radius: var(--novem-radius-lg) !important;
+  transition: all var(--novem-transition-base) !important;
+  box-shadow: none !important;
+}
+
+.ctaBtn:hover {
+  background: var(--novem-accent-hover) !important;
+  border-color: var(--novem-accent-hover) !important;
+  box-shadow: 0 0 20px rgba(82, 196, 26, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+.ctaBtn:active {
+  transform: translateY(0);
+  background: var(--novem-accent-active) !important;
+}
+
+.ctaHint {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+/* ── Version stamp ── */
+.versionStamp {
+  font-family: 'DM Mono', 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--novem-text-tertiary);
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  animation: slideUp 0.5s 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+/* ══════════════════════════════════════
+   RIGHT PANE
+   ══════════════════════════════════════ */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 28px 28px 36px;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+  background: var(--novem-bg-base);
+}
+
+[data-theme='dark'] .right {
+ background: var(--novem-bg-base);
+}
+
+[data-theme='light'] .right {
+ background: var(--novem-bg-base);
+}
+
+/* ── Preview frame (window chrome + carousel) ── */
+.previewFrame {
+  width: 100%;
+  max-width: 1220px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  animation: previewIn 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  z-index: 999;
+  background: var(--novem-bg-base);
+}
+
+[data-theme='dark'] .previewFrame {
+  border: 1px solid rgba(82, 196, 26, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(82, 196, 26, 0.06),
+    0 0 40px rgba(82, 196, 26, 0.06),
+    0 24px 64px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='light'] .previewFrame {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Ambient glow behind frame */
+.previewGlow {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .previewGlow {
+ background: var(--novem-bg-base);
+}
+
+[data-theme='light'] .previewGlow {
+ background: var(--novem-bg-base);
+}
+
+/* ── macOS window chrome bar ── */
+.windowBar {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  height: 34px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+[data-theme='dark'] .windowBar {
+  background: linear-gradient(180deg, #2a2a2a 0%, #1e1e1e 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='light'] .windowBar {
+  background: linear-gradient(180deg, #f4f4f4 0%, #e8e8e8 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Desktop app icon + title area (left) */
+.windowDots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dot {
+  display: none;
+}
+
+/* Win-style app icon placeholder */
+.windowAppIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* Slide title — centered in chrome */
+.windowTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Mono', 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .windowTitle {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme='light'] .windowTitle {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* Window control buttons — right side */
+.windowPips {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.windowControl {
+  width: 36px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  cursor: default;
+  transition: background 0.15s;
+  background: transparent;
+}
+
+[data-theme='dark'] .windowControl svg {
+  fill: rgba(255, 255, 255, 0.55);
+  stroke: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme='light'] .windowControl svg {
+  fill: rgba(0, 0, 0, 0.55);
+  stroke: rgba(0, 0, 0, 0.55);
+}
+
+[data-theme='dark'] .windowControl:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .windowControl:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.windowControlClose:hover {
+  background: #e81123 !important;
+}
+
+.windowControlClose:hover svg {
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+/* Pip dots for slide indicators — below carousel */
+.pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--novem-transition-base), transform var(--novem-transition-base);
+  background: transparent;
+}
+
+[data-theme='dark'] .pip {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme='light'] .pip {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.pip:hover {
+  transform: scale(1.35);
+}
+
+[data-theme='dark'] .pip:hover { background: rgba(255, 255, 255, 0.4); }
+[data-theme='light'] .pip:hover { background: rgba(0, 0, 0, 0.36); }
+
+.pipActive {
+  background: var(--novem-accent) !important;
+  transform: scale(1.15);
+}
+
+/* Slide indicator bar below carousel */
+.slidePips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0;
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .slidePips {
+  background: #1a1a1a;
+}
+
+[data-theme='light'] .slidePips {
+  background: #ebebeb;
+}
+
+/* ── Carousel viewport ── */
+.carouselViewport {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  /* Height: full remaining window height minus titlebar, chrome bar, outer padding */
+  height: calc(100vh - var(--novem-titlebar-height) - 34px - 56px);
+  min-height: 300px;
+  background: #000;
+}
+
+[data-theme='light'] .carouselViewport {
+  background: #f0f0f0;
+}
+
+/* Each slide image — stacked, cross-fade via opacity */
+.carouselImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fit;
+  object-position: top center;
+  opacity: 0;
+  transition: opacity 620ms ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 4;
+  background: var(--novem-bg-base);
+}
+
+.carouselImgVisible {
+  opacity: 1;
+}
+
+
+
+[data-theme='dark'] .previewFade {
+  background: linear-gradient(to bottom, transparent, #1a1a1a);
+}
+
+[data-theme='light'] .previewFade {
+  background: linear-gradient(to bottom, transparent, #ebebeb);
+}
+
+/* ── Auto-progress bar ── */
+.progressTrack {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 3;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .progressTrack { background: rgba(255, 255, 255, 0.06); }
+[data-theme='light'] .progressTrack { background: rgba(0, 0, 0, 0.08); }
+
+.progressBar {
+  height: 100%;
+  width: 0%;
+  background: var(--novem-accent);
+  animation: progress linear forwards;
+  /* animationDuration is set inline from SLIDE_DURATION */
+}
+
+@keyframes progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+
+/* ══════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════ */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes previewIn {
+  from { opacity: 0; transform: translateX(16px) scale(0.99); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .body {
+    grid-template-columns: 500px 1fr;
+  }
+
+  .left {
+    padding: 36px 44px 36px 48px;
+    gap: 24px;
+  }
+
+  .title { font-size: 42px; }
+}
+
+@media (max-width: 1000px) {
+  .body {
+    grid-template-columns: 440px 1fr;
+  }
+
+  .title { font-size: 36px; }
+  .subtitle { font-size: 14px; }
+}
+
+@media (max-width: 860px) {
+  .body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    overflow-y: auto;
+  }
+
+  .left {
+    border-right: none;
+    border-bottom: 1px solid var(--novem-border-default);
+    padding: 32px 36px;
+    gap: 20px;
+  }
+
+  .right {
+    padding: 24px;
+  }
+
+  .title { font-size: 32px; }
+
+  .carouselViewport {
+    height: 300px;
+  }
+}

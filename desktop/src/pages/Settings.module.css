@@ -1,0 +1,38 @@
+.settingsLayout {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--novem-border-default);
+  background: var(--novem-bg-elevated);
+  display: flex;
+  flex-direction: column;
+  padding: var(--novem-space-5) 0;
+}
+
+.sidebarTitle {
+  font-size: var(--novem-font-size-md);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-text-primary);
+  padding: 0 var(--novem-space-5) var(--novem-space-4);
+  letter-spacing: -0.2px;
+}
+
+.sidebarMenu {
+  border-inline-end: none !important;
+  background: transparent;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--novem-space-5) var(--novem-space-6);
+}
+
+.contentInner {
+  max-width: 640px;
+}

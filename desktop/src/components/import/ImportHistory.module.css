@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+  margin: 0;
+}
+
+.sourceCell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.rowCounts {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.rowNew {
+  color: var(--novem-success);
+}
+
+.rowUpdated {
+  color: var(--novem-text-secondary);
+}
+
+.rowSkipped {
+  color: var(--novem-text-tertiary);
+}
+
+.lineageLoading,
+.lineageEmpty {
+  font-size: 12px;
+  color: var(--novem-text-tertiary);
+  padding: 8px 0;
+}
+
+.lineageLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.lineageMeta {
+  font-size: 12px;
+  color: var(--novem-text-secondary);
+}

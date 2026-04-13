@@ -1,0 +1,26 @@
+.verdict {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.aiBadge {
+  display: inline-block;
+  font-size: 11px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.changeLine {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.drillTable {
+  margin-top: 12px;
+}

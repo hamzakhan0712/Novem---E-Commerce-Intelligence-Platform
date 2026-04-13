@@ -1,0 +1,71 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-1);
+  padding: var(--novem-space-5);
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  min-width: 0;
+  transition: border-color var(--novem-transition-fast), box-shadow var(--novem-transition-fast);
+}
+
+.card:hover {
+  border-color: var(--novem-border-hover);
+  box-shadow: var(--novem-shadow-xs);
+}
+
+.label {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  font-weight: var(--novem-font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.infoIcon {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  cursor: help;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--novem-space-3);
+}
+
+.value {
+  font-size: var(--novem-font-size-2xl);
+  font-weight: var(--novem-font-weight-bold);
+  color: var(--novem-text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.change {
+  font-size: var(--novem-font-size-xs);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.changeUp {
+  color: var(--novem-success);
+}
+
+.changeDown {
+  color: var(--novem-error);
+}
+
+.changeNeutral {
+  color: var(--novem-text-tertiary);
+}
+
+.prev {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  opacity: 0.7;
+}

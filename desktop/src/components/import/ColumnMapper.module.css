@@ -1,0 +1,106 @@
+.mapper {
+  margin: 16px 0;
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  background: var(--novem-bg-elevated);
+  overflow: hidden;
+}
+
+.mapperHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--novem-border);
+  background: var(--novem-bg-sunken);
+}
+
+.mapperTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.mapperStatus {
+  font-size: 12px;
+  color: var(--novem-text-secondary);
+  display: inline-flex;
+  align-items: center;
+}
+
+.mapperGrid {
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.mapperGridHeader {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.5fr 80px;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--novem-border);
+  position: sticky;
+  top: 0;
+  background: var(--novem-bg-elevated);
+  z-index: 1;
+}
+
+.mapperRow {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.5fr 80px;
+  gap: 8px;
+  padding: 6px 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--novem-border-default);
+  font-size: 12px;
+}
+
+.mapperRow:last-child {
+  border-bottom: none;
+}
+
+.mapperRow:hover {
+  background: var(--novem-bg-sunken);
+}
+
+.sourceCol {
+  color: var(--novem-text-primary);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sampleVal {
+  color: var(--novem-text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--novem-font-mono, monospace);
+  font-size: 11px;
+}
+
+.targetSelect {
+  width: 100%;
+}
+
+.statusCell {
+  display: flex;
+  justify-content: center;
+}
+
+.mapperWarning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--novem-text-secondary);
+  border-top: 1px solid var(--novem-border);
+  background: var(--novem-bg-sunken);
+}

@@ -1,0 +1,58 @@
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.kpiSkeleton {
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.cardSkeleton {
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  padding: 20px;
+}
+
+.chartSkeleton {
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartBar {
+  width: 80%;
+  height: 60%;
+  border-radius: var(--novem-radius-sm);
+  background: var(--novem-bg-hover);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.tableSkeleton {
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-default);
+  border-radius: var(--novem-radius-md);
+  padding: 16px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

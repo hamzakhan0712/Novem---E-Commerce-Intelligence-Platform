@@ -1,0 +1,23 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-4);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-4);
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--novem-space-4);
+}
+
+.chart {
+  min-height: 300px;
+}

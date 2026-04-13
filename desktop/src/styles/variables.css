@@ -1,0 +1,152 @@
+/* NOVEM Design Tokens — CSS Custom Properties */
+
+:root {
+  /* Brand */
+  --novem-accent: #52c41a;
+  --novem-accent-hover: #73d13d;
+  --novem-accent-active: #389e0d;
+  --novem-accent-bg: rgba(82, 196, 26, 0.08);
+
+  /* Semantic */
+  --novem-success: #52c41a;
+  --novem-warning: #faad14;
+  --novem-error: #ff4d4f;
+  --novem-info: #1677ff;
+  --novem-success-bg: rgba(82, 196, 26, 0.08);
+  --novem-warning-bg: rgba(250, 173, 20, 0.08);
+  --novem-error-bg: rgba(255, 77, 79, 0.08);
+  --novem-info-bg: rgba(22, 119, 255, 0.08);
+
+  /* Chart palette */
+  --novem-chart-0: #52c41a;
+  --novem-chart-1: #1677ff;
+  --novem-chart-2: #722ed1;
+  --novem-chart-3: #13c2c2;
+  --novem-chart-4: #fa8c16;
+  --novem-chart-5: #eb2f96;
+  --novem-chart-6: #fadb14;
+  --novem-chart-7: #ff4d4f;
+
+  /* Typography */
+  --novem-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --novem-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --novem-font-size-xs: 11px;
+  --novem-font-size-sm: 12px;
+  --novem-font-size-base: 13px;
+  --novem-font-size-md: 14px;
+  --novem-font-size-lg: 16px;
+  --novem-font-size-xl: 20px;
+  --novem-font-size-2xl: 28px;
+  --novem-font-size-3xl: 36px;
+  --novem-font-weight-normal: 400;
+  --novem-font-weight-medium: 500;
+  --novem-font-weight-semibold: 600;
+  --novem-font-weight-bold: 700;
+  --novem-line-height-tight: 1.3;
+  --novem-line-height-base: 1.5;
+  --novem-line-height-relaxed: 1.7;
+
+  /* Spacing (4px grid) */
+  --novem-space-0: 0px;
+  --novem-space-1: 4px;
+  --novem-space-2: 8px;
+  --novem-space-3: 12px;
+  --novem-space-4: 16px;
+  --novem-space-5: 20px;
+  --novem-space-6: 24px;
+  --novem-space-8: 32px;
+  --novem-space-10: 40px;
+  --novem-space-12: 48px;
+
+  /* Border radius */
+  --novem-radius-sm: 4px;
+  --novem-radius-md: 6px;
+  --novem-radius-lg: 8px;
+  --novem-radius-xl: 12px;
+  --novem-radius-full: 9999px;
+
+  /* Shadows */
+  --novem-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --novem-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --novem-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --novem-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --novem-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --novem-transition-fast: 100ms ease;
+  --novem-transition-base: 200ms ease;
+  --novem-transition-slow: 300ms ease;
+  --novem-transition-spring: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-index scale */
+  --novem-z-base: 0;
+  --novem-z-sidebar: 100;
+  --novem-z-toolbar: 200;
+  --novem-z-dropdown: 1000;
+  --novem-z-modal: 1100;
+  --novem-z-drawer: 1100;
+  --novem-z-notification: 1200;
+  --novem-z-command-palette: 1300;
+  --novem-z-toast: 1400;
+  --novem-z-titlebar: 1500;
+  --novem-z-splash: 9999;
+
+  /* Layout dimensions */
+  --novem-titlebar-height: 38px;
+  --novem-activity-bar-width: 48px;
+  --novem-sidebar-width: 240px;
+  --novem-sidebar-min-width: 180px;
+  --novem-sidebar-max-width: 400px;
+  --novem-statusbar-height: 24px;
+  --novem-toolbar-height: 40px;
+}
+
+/* Dark mode — refined black palette, no blue tint */
+[data-theme='dark'] {
+  --novem-bg-base: #0e0e0e;
+  --novem-bg-elevated: #1a1a1a;
+  --novem-bg-sunken: #141414;
+  --novem-bg-card: #1a1a1a;
+  --novem-bg-secondary: #141414;
+  --novem-bg-overlay: rgba(0, 0, 0, 0.72);
+  --novem-bg-hover: rgba(255, 255, 255, 0.05);
+  --novem-bg-active: rgba(255, 255, 255, 0.08);
+
+  --novem-text-primary: rgba(255, 255, 255, 0.90);
+  --novem-text-secondary: rgba(255, 255, 255, 0.58);
+  --novem-text-tertiary: rgba(255, 255, 255, 0.36);
+  --novem-text-inverse: #0e0e0e;
+
+  --novem-border-default: rgba(255, 255, 255, 0.08);
+  --novem-border-strong: rgba(255, 255, 255, 0.14);
+  --novem-border: rgba(255, 255, 255, 0.08);
+  --novem-border-hover: rgba(255, 255, 255, 0.18);
+
+  --novem-font-xs: 11px;
+  --novem-font-xl: 20px;
+}
+
+/* Light mode — clean white palette */
+[data-theme='light'] {
+  --novem-bg-base: #ffffff;
+  --novem-bg-elevated: #f8f8f8;
+  --novem-bg-sunken: #f1f1f1;
+  --novem-bg-card: #ffffff;
+  --novem-bg-secondary: #f1f1f1;
+  --novem-bg-overlay: rgba(0, 0, 0, 0.40);
+  --novem-bg-hover: rgba(0, 0, 0, 0.04);
+  --novem-bg-active: rgba(0, 0, 0, 0.06);
+
+  --novem-text-primary: rgba(0, 0, 0, 0.88);
+  --novem-text-secondary: rgba(0, 0, 0, 0.55);
+  --novem-text-tertiary: rgba(0, 0, 0, 0.35);
+  --novem-text-inverse: #ffffff;
+
+  --novem-border-default: rgba(0, 0, 0, 0.08);
+  --novem-border-strong: rgba(0, 0, 0, 0.15);
+  --novem-border: rgba(0, 0, 0, 0.08);
+  --novem-border-hover: rgba(0, 0, 0, 0.18);
+
+  --novem-font-xs: 11px;
+  --novem-font-xl: 20px;
+}

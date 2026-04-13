@@ -1,0 +1,30 @@
+.alert {
+  margin-bottom: var(--novem-space-4);
+}
+
+.title {
+  font-weight: 600;
+}
+
+.body {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: var(--novem-space-1) 0;
+}
+
+.campaign {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spend {
+  font-weight: 500;
+  color: var(--novem-text-secondary);
+}

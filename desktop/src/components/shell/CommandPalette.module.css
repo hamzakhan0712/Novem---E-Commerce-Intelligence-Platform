@@ -1,0 +1,117 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--novem-z-command-palette);
+  background: var(--novem-bg-overlay);
+  display: flex;
+  justify-content: center;
+  padding-top: 15vh;
+  animation: fadeIn var(--novem-transition-fast, 100ms ease);
+}
+
+.palette {
+  width: 520px;
+  max-height: 420px;
+  background: var(--novem-bg-elevated);
+  border: 1px solid var(--novem-border-strong);
+  border-radius: var(--novem-radius-xl);
+  box-shadow: var(--novem-shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideDown 150ms ease;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  padding: var(--novem-space-3) var(--novem-space-4);
+  border-bottom: 1px solid var(--novem-border-default);
+}
+
+.inputWrapper .searchIcon {
+  color: var(--novem-text-tertiary);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: var(--novem-font-size-md);
+  color: var(--novem-text-primary);
+  font-family: var(--novem-font-family);
+}
+
+.input::placeholder {
+  color: var(--novem-text-tertiary);
+}
+
+.results {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--novem-space-2) 0;
+}
+
+.groupLabel {
+  padding: var(--novem-space-1) var(--novem-space-4);
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: var(--novem-font-weight-medium);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-3);
+  padding: var(--novem-space-2) var(--novem-space-4);
+  cursor: pointer;
+  font-size: var(--novem-font-size-base);
+  color: var(--novem-text-primary);
+  transition: background var(--novem-transition-fast, 100ms ease);
+}
+
+.item:hover,
+.itemActive {
+  background: var(--novem-bg-hover);
+}
+
+.itemIcon {
+  color: var(--novem-text-secondary);
+  font-size: 14px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.itemLabel {
+  flex: 1;
+}
+
+.itemShortcut {
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-tertiary);
+  font-family: var(--novem-font-mono);
+}
+
+.empty {
+  padding: var(--novem-space-6) var(--novem-space-4);
+  text-align: center;
+  color: var(--novem-text-tertiary);
+  font-size: var(--novem-font-size-sm);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

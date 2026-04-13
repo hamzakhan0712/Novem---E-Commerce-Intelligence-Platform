@@ -1,0 +1,594 @@
+import logging
+import re
+
+from app.models.ingestion import ColumnMapping, DataType
+
+logger = logging.getLogger(__name__)
+
+SYNONYMS: dict[DataType, dict[str, list[str]]] = {
+    DataType.ORDERS: {
+        "order_id": [
+            "order_number", "order_no", "order_ref", "transaction_id",
+            "txn_id", "invoice_id", "invoice_number", "id",
+            "invoice_no", "invoiceno", "invoice", "receipt_number",
+            "receipt_no", "bill_no", "bill_number",
+            # Shopify
+            "name", "order_name", "confirmation_number",
+            # WooCommerce
+            "post_id", "wc_order_id",
+            # Amazon
+            "amazon_order_id", "merchant_order_id", "purchase_order_id",
+            # BigCommerce / Magento
+            "entity_id", "increment_id", "bc_order_id",
+        ],
+        "order_date": [
+            "date", "purchase_date", "created_at", "order_timestamp",
+            "transaction_date", "ordered_at",
+            "invoice_date", "invoicedate", "bill_date",
+            "receipt_date", "sale_date", "sold_date",
+            # Shopify
+            "processed_at", "closed_at",
+            # WooCommerce
+            "date_created", "post_date", "date_completed",
+            # Amazon
+            "purchase_date_time", "last_updated_date",
+            # Generic
+            "placed_at", "order_placed", "date_placed",
+        ],
+        "customer_id": [
+            "user_id", "buyer_id", "client_id", "customer_number",
+            "cust_id", "shopper_id", "account_id", "member_id",
+            # Shopify
+            "shopify_customer_id",
+            # WooCommerce
+            "customer_user",
+            # Amazon
+            "buyer_id", "marketplace_buyer_id",
+        ],
+        "customer_email_hash": [
+            "email", "customer_email", "buyer_email", "user_email",
+            "contact_email", "e_mail",
+            # Shopify / WooCommerce
+            "billing_email", "notification_email",
+        ],
+        "customer_name_hash": [
+            "name", "customer_name", "buyer_name", "full_name",
+            "user_name", "client_name",
+            # Shopify / WooCommerce
+            "billing_name", "shipping_name", "billing_first_name",
+            "billing_last_name", "first_name", "last_name",
+        ],
+        "product_id": [
+            "sku", "item_id", "product_sku", "item_sku", "product_code",
+            "item_code", "variant_id", "upc", "asin",
+            "stock_code", "stockcode", "item_number", "part_number",
+            "barcode", "article_number", "article_no",
+            # Shopify
+            "shopify_product_id", "variant_sku", "line_item_sku",
+            "line_item_product_id",
+            # WooCommerce
+            "wc_product_id",
+            # Amazon
+            "seller_sku", "fnsku", "listing_id", "marketplace_id",
+            # BigCommerce
+            "bc_product_id",
+        ],
+        "product_name": [
+            "item_name", "product_title", "item", "product_description",
+            "item_title", "description", "item_description",
+            "line_item", "goods", "article_name", "material_description",
+            # Shopify
+            "line_item_name", "variant_title",
+            # Amazon
+            "listing_title",
+        ],
+        "category": [
+            "product_category", "item_category", "department",
+            "product_type", "item_type", "group",
+            # Shopify
+            "collection", "product_type_shopify",
+            # Amazon
+            "browse_node", "item_classification",
+            # WooCommerce
+            "tax_class", "product_cat",
+        ],
+        "quantity": [
+            "qty", "units", "items_ordered", "order_qty", "amount", "count",
+            # Shopify
+            "line_item_quantity", "fulfillable_quantity",
+            # Amazon
+            "quantity_ordered", "quantity_shipped",
+            # WooCommerce
+            "qty_ordered", "product_qty",
+        ],
+        "unit_price": [
+            "price", "item_price", "price_per_unit", "sale_price",
+            "selling_price", "rate",
+            # Shopify
+            "line_item_price", "variant_price",
+            # Amazon
+            "item_price_amount", "your_price",
+            # WooCommerce
+            "line_subtotal", "product_price",
+        ],
+        "total_price": [
+            "total", "line_total", "subtotal", "order_total", "revenue",
+            "gross", "order_value", "amount_paid",
+            # Shopify
+            "total_price_shopify", "current_subtotal_price",
+            "current_total_price", "subtotal_price",
+            # WooCommerce
+            "order_total_wc", "cart_total",
+            # Amazon
+            "item_total", "order_amount",
+            # Generic
+            "net_amount", "grand_total", "payment_amount",
+        ],
+        "discount_amount": [
+            "discount", "discount_value", "promo_amount",
+            "coupon_amount", "savings",
+            # Shopify
+            "total_discounts", "discount_code", "discount_applications",
+            # WooCommerce
+            "cart_discount", "order_discount",
+            # Amazon
+            "promotion_discount", "item_promotion_discount",
+        ],
+        "currency": [
+            "currency_code", "curr", "iso_currency",
+            # Shopify
+            "presentment_currency", "shop_currency",
+            # Amazon
+            "marketplace_currency",
+        ],
+        "status": [
+            "order_status", "state", "fulfillment_status", "payment_status",
+            # Shopify
+            "financial_status", "cancel_reason", "confirmed",
+            # WooCommerce
+            "post_status", "wc_status",
+            # Amazon
+            "order_status_amazon", "shipment_status",
+        ],
+        "refund_amount": [
+            "refund", "refund_value", "return_amount", "credit_amount",
+            # Shopify
+            "total_refund", "refund_line_items_amount",
+            # Amazon
+            "item_promotion_adjustment", "shipping_credit",
+        ],
+        "refund_reason": [
+            "return_reason", "refund_reason_code", "cancellation_reason",
+            # Amazon
+            "return_reason_code", "buyer_cancellation_reason",
+        ],
+        "channel": [
+            "source", "traffic_source", "utm_source",
+            "acquisition_channel", "marketing_channel", "medium",
+            "referral_source",
+            # Shopify
+            "source_name", "landing_site", "referring_site",
+            # WooCommerce
+            "utm_medium", "utm_campaign",
+            # Amazon
+            "sales_channel", "fulfillment_channel",
+        ],
+        "region": [
+            "country", "location", "geo", "ship_country",
+            "billing_country", "market",
+            # Shopify / WooCommerce
+            "shipping_country", "shipping_country_code",
+            "billing_country_code", "shipping_province",
+            "shipping_city", "shipping_state",
+            # Amazon
+            "ship_service_level", "ship_state", "marketplace",
+        ],
+    },
+    DataType.CUSTOMERS: {
+        "customer_id": [
+            "user_id", "buyer_id", "client_id", "customer_number",
+            "cust_id", "shopper_id", "account_id", "member_id",
+            "id", "customer_no",
+            # Shopify
+            "shopify_customer_id",
+            # WooCommerce
+            "customer_user", "wc_customer_id",
+        ],
+        "email_hash": [
+            "email", "customer_email", "user_email", "contact_email",
+            "e_mail", "email_address", "e_mail_address",
+            # Shopify / WooCommerce
+            "billing_email", "notification_email",
+        ],
+        "name_hash": [
+            "name", "full_name", "customer_name", "user_name",
+            "display_name", "contact_name",
+            # Shopify / WooCommerce
+            "first_name", "last_name", "billing_name",
+            "billing_first_name", "billing_last_name",
+        ],
+        "first_order_date": [
+            "first_purchase", "signup_date", "created_at",
+            "registered_at", "join_date",
+            # Shopify
+            "accepts_marketing_updated_at",
+            # WooCommerce
+            "date_registered", "user_registered",
+        ],
+        "last_order_date": [
+            "last_purchase", "last_activity", "last_seen", "updated_at",
+            # Shopify
+            "last_order_date_shopify",
+            # Generic
+            "last_login", "last_visit",
+        ],
+        "total_orders": [
+            "order_count", "num_orders", "purchase_count", "transactions",
+            # Shopify
+            "orders_count",
+            # Generic
+            "number_of_orders", "total_transactions",
+        ],
+        "total_spend": [
+            "lifetime_value", "ltv", "total_revenue",
+            "total_purchases", "clv",
+            # Shopify
+            "total_spent",
+            # Generic
+            "revenue", "customer_value", "monetary_value",
+        ],
+        "avg_order_value": [
+            "aov", "average_order", "avg_purchase",
+            # Generic
+            "avg_basket", "average_basket_size", "avg_transaction",
+        ],
+        "region": [
+            "country", "location", "geo", "market",
+            # Shopify / WooCommerce
+            "default_address_country", "billing_country",
+            "shipping_country", "country_code", "state", "city",
+            "default_address_country_code", "default_address_province_code",
+            "default_address_city",
+        ],
+    },
+    DataType.PRODUCTS: {
+        "product_id": [
+            "sku", "item_id", "product_sku", "item_code",
+            "product_code", "variant_id", "upc", "asin",
+            # Shopify
+            "shopify_product_id", "handle", "variant_sku",
+            # WooCommerce
+            "wc_product_id", "post_id",
+            # Amazon
+            "fnsku", "seller_sku", "listing_id",
+            # BigCommerce
+            "bc_product_id",
+        ],
+        "product_name": [
+            "name", "title", "item_name", "item_title",
+            "description", "product_title",
+            # Shopify
+            "handle_title", "seo_title",
+            # Amazon
+            "listing_title", "item_name_amazon",
+        ],
+        "category": [
+            "product_category", "department", "product_type",
+            "collection", "group", "type",
+            # Shopify
+            "product_type_shopify", "collections",
+            # WooCommerce
+            "product_cat", "tax_class",
+            # Amazon
+            "browse_node", "item_type_keyword",
+        ],
+        "subcategory": [
+            "sub_category", "product_subcategory", "sub_type",
+            "sub_department", "vendor",
+            # Shopify
+            "tags", "product_tags",
+            # Amazon
+            "item_classification", "browse_node_child",
+        ],
+        "unit_cost": [
+            "cost", "cogs", "cost_price", "purchase_price",
+            "wholesale_price", "supplier_price",
+            "variant_price", "price",
+            # Shopify
+            "cost_per_item", "variant_cost", "variant_compare_at_price",
+            # Generic
+            "manufacturing_cost", "landed_cost", "buy_price",
+            "selling_price", "retail_price", "msrp",
+        ],
+        "current_stock": [
+            "stock", "inventory", "quantity_on_hand",
+            "qty_available", "in_stock",
+            # Shopify
+            "inventory_quantity", "variant_inventory_qty",
+            "available_quantity",
+            # WooCommerce
+            "stock_quantity", "wc_stock",
+            # Amazon
+            "afn_fulfillable_quantity", "mfn_fulfillable_quantity",
+        ],
+        "status": [
+            "product_status", "availability", "active",
+            "published",
+            # Shopify
+            "published_at", "published_scope",
+            # WooCommerce
+            "post_status", "stock_status", "catalog_visibility",
+            # Generic
+            "is_active", "is_visible", "enabled",
+        ],
+        "size": [
+            "product_size", "item_size", "variant_size",
+            # Shopify
+            "option1", "option_size",
+            # Generic
+            "dimensions", "weight_unit",
+        ],
+        "color": [
+            "product_color", "item_color", "variant_color", "colour",
+            # Shopify
+            "option2", "option_color",
+        ],
+    },
+    DataType.AD_SPEND: {
+        "date": [
+            "day", "report_date", "spend_date", "period",
+            # Facebook / Meta
+            "date_start", "date_stop", "reporting_starts",
+            # Google Ads
+            "segments_date", "day_of_week",
+            # Generic
+            "campaign_date", "activity_date",
+        ],
+        "channel": [
+            "source", "platform", "network", "ad_platform",
+            "ad_source", "medium",
+            # Facebook
+            "publisher_platform", "platform_position",
+            # Google Ads
+            "advertising_channel_type", "advertising_channel_sub_type",
+            # Generic
+            "traffic_source", "utm_source", "ad_network",
+        ],
+        "campaign_name": [
+            "campaign", "campaign_id", "ad_campaign", "campaign_title",
+            # Facebook
+            "campaign_name_fb", "adset_name", "ad_name",
+            # Google Ads
+            "campaign_name_google", "ad_group_name", "ad_group",
+            # Generic
+            "promotion_name", "promo_code", "marketing_campaign",
+        ],
+        "impressions": [
+            "views", "impr", "ad_impressions", "reach",
+            # Facebook / Google
+            "unique_impressions", "display_impressions",
+            "video_views", "estimated_impressions",
+        ],
+        "clicks": [
+            "link_clicks", "ad_clicks", "click_count",
+            # Facebook
+            "outbound_clicks", "unique_clicks", "inline_link_clicks",
+            # Google Ads
+            "interactions", "engagements",
+        ],
+        "spend": [
+            "cost", "ad_spend", "amount_spent", "total_cost",
+            "budget_spent",
+            # Facebook
+            "spend_fb", "account_spend",
+            # Google Ads
+            "cost_micros", "cost_per_click", "average_cpc",
+            # Generic
+            "media_cost", "investment", "budget_used",
+        ],
+        "currency": [
+            "currency_code", "curr",
+            # Facebook / Google
+            "account_currency",
+        ],
+        "conversions": [
+            "purchases", "actions", "conversion_count", "results",
+            # Facebook
+            "offsite_conversion_purchase", "unique_actions",
+            # Google Ads
+            "all_conversions", "conversions_google", "conversion_action",
+            # Generic
+            "total_conversions", "completed_purchases",
+        ],
+        "revenue_attributed": [
+            "conversion_value", "purchase_value", "revenue", "value",
+            # Facebook
+            "action_values", "purchase_roas",
+            # Google Ads
+            "all_conversions_value", "conversions_value",
+            # Generic
+            "attributed_revenue", "return_on_ad_spend", "roas_value",
+        ],
+    },
+    DataType.REVIEWS: {
+        "review_id": [
+            "id", "review_number", "feedback_id",
+            # Shopify
+            "shopify_review_id",
+            # Amazon
+            "review_id_amazon", "marketplace_review_id",
+            # Generic
+            "comment_id", "testimonial_id",
+        ],
+        "product_id": [
+            "sku", "item_id", "product_sku", "asin",
+            # Shopify
+            "shopify_product_id", "handle",
+            # Amazon
+            "parent_asin", "marketplace_product_id",
+        ],
+        "customer_id": [
+            "user_id", "reviewer_id", "author_id",
+            # Amazon
+            "reviewer_name", "profile_id",
+            # Generic
+            "buyer_id", "commenter_id",
+        ],
+        "review_date": [
+            "date", "created_at", "posted_at", "submitted_at",
+            # Amazon
+            "review_date_amazon",
+            # Generic
+            "publish_date", "date_published", "commented_at",
+            "written_on",
+        ],
+        "rating": [
+            "stars", "star_rating", "score", "review_rating",
+            # Amazon
+            "overall_rating",
+            # Generic
+            "review_score", "satisfaction_score", "nps_score",
+        ],
+        "review_text": [
+            "text", "comment", "body", "content", "feedback",
+            "review_body", "description",
+            # Amazon
+            "review_headline", "review_title",
+            # Generic
+            "summary", "opinion", "testimonial",
+        ],
+    },
+    DataType.STOCK_LEVELS: {
+        "product_id": [
+            "sku", "item_id", "product_sku", "item_code",
+            # Shopify
+            "shopify_product_id", "variant_id", "inventory_item_id",
+            # Amazon
+            "asin", "fnsku", "seller_sku",
+            # WooCommerce
+            "wc_product_id",
+        ],
+        "snapshot_date": [
+            "date", "count_date", "stock_date", "inventory_date",
+            "as_of_date",
+            # Generic
+            "report_date", "recorded_at", "timestamp",
+            "checked_at", "last_updated",
+        ],
+        "quantity_on_hand": [
+            "stock", "qty", "units", "inventory", "available",
+            "on_hand", "in_stock",
+            # Shopify
+            "inventory_quantity", "available_quantity",
+            # Amazon
+            "afn_fulfillable_quantity", "mfn_fulfillable_quantity",
+            "total_supply_quantity",
+            # WooCommerce
+            "stock_quantity",
+            # Generic
+            "warehouse_qty", "bin_quantity", "physical_count",
+        ],
+        "lead_time_days": [
+            "lead_time", "supplier_lead_time", "restock_days",
+            "delivery_days",
+            # Generic
+            "replenishment_days", "transit_days", "order_to_delivery",
+            "procurement_lead_time",
+        ],
+    },
+}
+
+
+def map_columns(
+    headers: list[str],
+    data_type: DataType,
+) -> list[ColumnMapping]:
+    """Map source columns to canonical columns using synonym matching."""
+    synonym_map = SYNONYMS.get(data_type, {})
+    mappings: list[ColumnMapping] = []
+    used_targets: set[str] = set()
+
+    for header in headers:
+        normalized = _normalize(header)
+        target, auto = _find_match(normalized, synonym_map, used_targets)
+        if target:
+            used_targets.add(target)
+        mappings.append(ColumnMapping(
+            source_column=header,
+            target_column=target,
+            auto_mapped=auto,
+            data_type_hint=_guess_dtype(header),
+        ))
+
+    return mappings
+
+
+def _find_match(
+    normalized: str,
+    synonym_map: dict[str, list[str]],
+    used_targets: set[str],
+) -> tuple[str | None, bool]:
+    """Find a canonical column match for a normalized source header."""
+    # Exact match on canonical name
+    for canonical in synonym_map:
+        if canonical in used_targets:
+            continue
+        if normalized == _normalize(canonical):
+            return canonical, True
+
+    # Exact match on synonym
+    for canonical, synonyms in synonym_map.items():
+        if canonical in used_targets:
+            continue
+        for syn in synonyms:
+            if normalized == _normalize(syn):
+                return canonical, True
+
+    # Fuzzy match (Levenshtein distance ≤ 2 for strings ≥ 5 chars)
+    if len(normalized) >= 5:
+        for canonical, synonyms in synonym_map.items():
+            if canonical in used_targets:
+                continue
+            all_names = [canonical, *synonyms]
+            for name in all_names:
+                norm_name = _normalize(name)
+                if _levenshtein(normalized, norm_name) <= 2:
+                    return canonical, True
+
+    return None, False
+
+
+def _normalize(name: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", name.lower().strip())
+
+
+def _guess_dtype(header: str) -> str:
+    """Guess the data type hint from column name."""
+    h = header.lower()
+    if any(kw in h for kw in ("date", "time", "created", "updated", "at")):
+        return "date"
+    if any(kw in h for kw in ("price", "amount", "cost", "spend", "revenue", "total", "value")):
+        return "number"
+    if any(kw in h for kw in ("count", "qty", "quantity", "stock", "units", "id", "rating")):
+        return "number"
+    return "string"
+
+
+def _levenshtein(s1: str, s2: str) -> int:
+    """Compute Levenshtein distance between two strings."""
+    if len(s1) < len(s2):
+        return _levenshtein(s2, s1)
+    if len(s2) == 0:
+        return len(s1)
+
+    prev_row = list(range(len(s2) + 1))
+    for i, c1 in enumerate(s1):
+        curr_row = [i + 1]
+        for j, c2 in enumerate(s2):
+            ins = prev_row[j + 1] + 1
+            delete = curr_row[j] + 1
+            sub = prev_row[j] + (c1 != c2)
+            curr_row.append(min(ins, delete, sub))
+        prev_row = curr_row
+
+    return prev_row[-1]

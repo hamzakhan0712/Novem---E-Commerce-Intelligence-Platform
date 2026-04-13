@@ -1,0 +1,119 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: var(--novem-space-8);
+  gap: var(--novem-space-6);
+}
+
+.hero {
+  text-align: center;
+}
+
+.heroIcon {
+  font-size: 40px;
+  color: var(--novem-accent);
+  margin-bottom: var(--novem-space-3);
+}
+
+.heroTitle {
+  font-size: var(--novem-font-size-xl);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+  margin: 0 0 var(--novem-space-2) 0;
+}
+
+.heroSub {
+  font-size: var(--novem-font-size-sm);
+  color: var(--novem-text-secondary);
+  margin: 0;
+  max-width: 400px;
+}
+
+.starterGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--novem-space-4);
+  width: 100%;
+  max-width: 640px;
+}
+
+.starterCard {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-4);
+  transition: border-color 0.2s;
+}
+
+.starterCard:hover {
+  border-color: var(--novem-border-hover);
+}
+
+.starterHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+  margin-bottom: var(--novem-space-3);
+}
+
+.starterIcon {
+  font-size: 16px;
+  color: var(--novem-accent);
+}
+
+.starterCategory {
+  font-size: var(--novem-font-size-sm);
+  font-weight: var(--novem-font-weight-semibold);
+  color: var(--novem-text-primary);
+}
+
+.starterQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--novem-space-1);
+}
+
+.starterBtn {
+  background: none;
+  border: none;
+  padding: var(--novem-space-2) var(--novem-space-3);
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.starterBtn:hover {
+  background: var(--novem-bg-hover);
+  color: var(--novem-text-primary);
+}
+
+.suggestionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--novem-space-2);
+  justify-content: center;
+  max-width: 640px;
+}
+
+.suggestionBtn {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  padding: var(--novem-space-2) var(--novem-space-4);
+  font-size: var(--novem-font-size-xs);
+  color: var(--novem-text-secondary);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.suggestionBtn:hover {
+  border-color: var(--novem-accent);
+  color: var(--novem-accent);
+  background: var(--novem-bg-hover);
+}

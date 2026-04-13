@@ -1,0 +1,37 @@
+.wrapper {
+  background: var(--novem-bg-card);
+  border: 1px solid var(--novem-border);
+  border-radius: var(--novem-radius-lg);
+  padding: var(--novem-space-5);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--novem-space-4);
+  flex-wrap: wrap;
+  gap: var(--novem-space-2);
+}
+
+.title {
+  font-size: var(--novem-font-size-md);
+  font-weight: 600;
+  color: var(--novem-text-primary);
+}
+
+.count {
+  font-weight: 400;
+  color: var(--novem-text-tertiary);
+  font-size: var(--novem-font-size-sm);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--novem-space-2);
+}
+
+.search {
+  width: 200px;
+}
