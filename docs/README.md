@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/novem.png" alt="NOVEM - E-Commerce Intelligence Platform" width="100%">
+</p>
+
 # NOVEM — E-Commerce Intelligence Platform
 
 ## What is NOVEM?
